@@ -1,2 +1,12 @@
-h1 Posts#new
-p Find me in app/views/posts/new.html.slim
+h1 投稿の新規作成
+
+= link_to '一覧', posts_path 
+
+= form_with model: @post, local: true do |f|
+  .form-group 
+    = f.label :title 
+    = f.text_field :title, id: 'post_title'
+  .form-group
+    = f.label :body
+    = f.text_area :body, rows: 5, id: 'post_body'
+  = f.submit nil
