@@ -1,12 +1,13 @@
 h1 投稿の新規作成
 
-= link_to '一覧', posts_path 
+.nav.justify-content-end
+  = link_to '一覧', posts_path, class: 'nav-link'
 
 = form_with model: @post, local: true do |f|
   .form-group 
     = f.label :title 
-    = f.text_field :title, id: 'post_title'
+    = f.text_field :title, class: 'form-control', id: 'post_title'
   .form-group
     = f.label :body
-    = f.text_area :body, rows: 5, id: 'post_body'
-  = f.submit nil
+    = f.text_area :body, rows: 5, class: 'form-control', id: 'post_body'
+  = f.submit nil, class: 'btn btn-primary'
