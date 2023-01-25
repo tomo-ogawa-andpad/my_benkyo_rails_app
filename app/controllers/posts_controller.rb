@@ -27,6 +27,12 @@ class PostsController < ApplicationController
     redirect_to posts_url, notice: "投稿「#{post.title}」を登録しました。"
   end
 
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy!
+    redirect_to posts_url, notice: "投稿「#{post.title}」を削除しました。", status: :see_other
+  end
+
   private
 
   def post_params
