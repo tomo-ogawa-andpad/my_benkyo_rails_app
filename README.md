@@ -1,24 +1,22 @@
 # README
+簡単な掲示板アプリ
+## 初期データ作成
+```
+$ bin/rails db:seed
+```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サーバ起動
+```
+$ bin/rails s
+```
+http://localhost:3000 にアクセス
 
-Things you may want to cover:
+## 初期データに含まれるユーザ
+- 管理者ユーザ
+  - メールアドレス：admin@example.com
+  - パスワード：password123
+- 一般ユーザ
+  - メールアドレス：hoge@example.com
+  - パスワード：password123
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+※管理者ユーザだけがユーザを新規登録する権限を持つ
