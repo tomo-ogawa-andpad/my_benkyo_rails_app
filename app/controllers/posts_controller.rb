@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_my_post, only: [:edit, :update, :destroy]
   def index
     @posts = Post.recent
   end
@@ -12,11 +13,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = current_user.posts.find(params[:id])
   end
 
   def update
-    post = current_user.posts.find(params[:id])
     post.update!(post_params)
     redirect_to post_url, notice: "投稿「#{post.title}」を更新しました。"
   end
@@ -28,7 +27,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = current_user.posts.find(params[:id])
     post.destroy!
     redirect_to posts_url, notice: "投稿「#{post.title}」を削除しました。", status: :see_other
   end
@@ -37,5 +35,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body)
+  end
+
+  def set_my_post
+    @post = current_user.posts.find(params[:id])
   end
 end
