@@ -4,8 +4,8 @@ h1 投稿の詳細
 table.table.table-hover 
   tbody 
     tr 
-      th= Post.human_attribute_name(:id)
-      td= @post.id
+      th 投稿者
+      td= @post.user.name
     tr 
       th= Post.human_attribute_name(:title)
       td= @post.title
