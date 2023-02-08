@@ -19,5 +19,6 @@ table.table.table-hover
       th= Post.human_attribute_name(:updated_at)
       td= @post.updated_at
 
-= link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'
-= link_to '削除', @post, data: { turbo_method: :delete, confirm: "投稿「#{@post.title}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
+- if @post.user == current_user
+  = link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'
+  = link_to '削除', @post, data: { turbo_method: :delete, confirm: "投稿「#{@post.title}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
