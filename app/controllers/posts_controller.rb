@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :set_my_post, only: [:edit, :update, :destroy]
   def index
     @posts = Post.recent
   end
@@ -13,6 +12,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = post
   end
 
   def update
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body)
   end
 
-  def set_my_post
-    @post = current_user.posts.find(params[:id])
+  def post
+    current_user.posts.find(params[:id])
   end
 end
