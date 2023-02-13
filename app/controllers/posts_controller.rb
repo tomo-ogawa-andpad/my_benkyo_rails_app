@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.recent
+    @posts = Post.recent.includes(:user)
   end
 
   def show
