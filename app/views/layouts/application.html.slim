@@ -19,6 +19,8 @@ html
           li.nav-item= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: 'nav-link'
         - else 
           li.nav-item= link_to 'ログイン', login_path, class: 'nav-link'
+      - if current_user
+        .(style="margin-left: auto;") #{current_user.name}でログイン中
     .container
       - if flash.notice.present?
         .alert.alert-success= flash.notice
