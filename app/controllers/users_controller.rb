@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :current_user_check
 
   def show
+    @posts = current_user.posts.created_today
   end
 
   private

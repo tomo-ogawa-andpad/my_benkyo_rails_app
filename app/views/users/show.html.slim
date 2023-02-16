@@ -1,2 +1,15 @@
-h1 #{@user.name}の投稿サマリ
-. ここにサマリを出す（1ヵ月間の投稿一覧、投稿数、…）
+h1 #{@user.name}の今日の投稿サマリ
+
+p 投稿数：#{@posts.size}
+
+.mb-3 
+table.table.table-hover 
+  thead.thead-default 
+    tr 
+      th= Post.human_attribute_name(:title)
+      th= Post.human_attribute_name(:created_at)
+  tbody 
+    - @posts.each do |post|
+      tr 
+        td= link_to post.title, post 
+        td= post.created_at

@@ -14,8 +14,8 @@ ja:
         id: ID
         title: タイトル
         body: 本文
-        created_at: 登録日時
-        updated-at: 更新日時
+        created_at: 投稿日時
+        updated_at: 更新日時
       user:
         id: ID
         name: 名前
