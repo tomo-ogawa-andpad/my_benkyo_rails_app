@@ -12,10 +12,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = post
+    @post = find_post
   end
 
   def update
+    post = find_post
     post.update!(post_params)
     redirect_to post_url, notice: "投稿「#{post.title}」を更新しました。"
   end
@@ -27,6 +28,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    post = find_post
     post.destroy!
     redirect_to posts_url, notice: "投稿「#{post.title}」を削除しました。", status: :see_other
   end
@@ -37,7 +39,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body)
   end
 
-  def post
+  def find_post
     current_user.posts.find(params[:id])
   end
 end
