@@ -14,10 +14,10 @@ table.table.table-hover
       td= simple_format(h(@post.body), {}, sanitize: false, wrapper_tag: "div")
     tr
       th= Post.human_attribute_name(:created_at)
-      td= @post.created_at
+      td= l @post.created_at, format: :long
     tr 
       th= Post.human_attribute_name(:updated_at)
-      td= @post.updated_at
+      td= l @post.updated_at, format: :long
 
 - if @post.user == current_user
   = link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'

@@ -13,4 +13,4 @@ table.table.table-hover
       tr 
         td= post.user.name
         td= link_to post.title, post 
-        td= post.created_at
+        td= l post.created_at, format: :long
