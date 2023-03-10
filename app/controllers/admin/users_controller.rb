@@ -44,11 +44,6 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_url, notice: "ユーザー「#{@user.name}を削除しました。"
   end
 
-  def summary_download
-    UsersSummaryDownloadJob.perform_now
-    redirect_back fallback_location: root_path
-  end
-
   private
 
   def user_params

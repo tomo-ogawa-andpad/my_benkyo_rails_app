@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   namespace :admin do
-    get '/users/summary_download', to: 'users#summary_download'
     resources :users
     resources :userpage, only: %i[show]
-    resources :users_summaries, only: %i[index]
+    resources :users_summaries, only: %i[index create]
   end
   root to: 'posts#index'
   resources :posts
