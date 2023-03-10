@@ -1,0 +1,13 @@
+h1 ユーザーの投稿サマリダウンロード
+
+.mb-3 
+table.table.table-hover 
+  thead.thead-default 
+    tr 
+      th ファイル名
+      th 
+  tbody 
+    - @users_summaries.each do |summary|
+      tr 
+        td= summary.file_blob.filename
+        td= link_to 'ダウンロード', rails_blob_path(summary.file), class: 'btn btn-secondary mr-3'

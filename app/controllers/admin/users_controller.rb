@@ -45,17 +45,8 @@ class Admin::UsersController < ApplicationController
   end
 
   def summary_download
-    users = User.all
-    today = Time.zone.today
-    month = today.month
-    year = today.year
-    csv_data = CSV.generate(encoding: 'sjis') do |csv|
-      csv << ['ユーザー名', "投稿数"]
-      users.each do |user|
-        csv << [user.name, user.posts.created_at_this_month(today).size]
-      end
-    end
-    send_data(csv_data, filename: "#{year}年#{month}月の投稿サマリ.csv")
+    UsersSummaryDownloadJob.perform_now
+    redirect_back fallback_location: root_path
   end
 
   private

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get '/users/summary_download', to: 'users#summary_download'
     resources :users
     resources :userpage, only: %i[show]
+    resources :users_summaries, only: %i[index]
   end
   root to: 'posts#index'
   resources :posts
