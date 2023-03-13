@@ -1,7 +1,9 @@
 h1 ユーザー一覧
 
 = link_to '新規登録', new_admin_user_path, class: 'btn btn-primary'
-= button_to '投稿サマリダウンロード', admin_users_summaries_path, class: 'btn btn-secondary'
+= button_to 'ダウンロード', admin_users_summaries_path, class: 'btn btn-secondary'
+
+= link_to 'ダウンロードした投稿サマリの一覧', admin_users_summaries_path
 
 .mb-3 
 table.table.table-hover 
