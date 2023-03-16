@@ -1,7 +1,7 @@
 class UsersSummaryDownloadJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
+  def perform
     users = User.all
     today = Time.zone.today
     month = today.month
