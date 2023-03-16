@@ -6,6 +6,6 @@ class Admin::UsersSummariesController < Admin::ApplicationController
 
   def create
     UsersSummaryGenerateJob.perform_later(Time.zone.today)
-    redirect_back fallback_location: root_path, notice: "ダウンロードを受け付けました。#{view_context.link_to 'こちら', admin_users_summaries_path}で確認してください。"
+    redirect_back fallback_location: root_path, notice: "ダウンロードを受け付けました。「ダウンロードした投稿サマリの一覧」からご確認ください。"
   end
 end
