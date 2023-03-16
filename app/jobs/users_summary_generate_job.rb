@@ -1,4 +1,4 @@
-class UsersSummaryDownloadJob < ApplicationJob
+class UsersSummaryGenerateJob < ApplicationJob
   queue_as :default
 
   def perform
