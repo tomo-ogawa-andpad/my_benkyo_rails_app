@@ -1,9 +1,8 @@
 class UsersSummaryGenerateJob < ApplicationJob
   queue_as :default
 
-  def perform
+  def perform(today)
     users = User.all
-    today = Time.zone.today
     month = today.month
     year = today.year
     filename = "#{year}年#{month}月の投稿サマリ.csv"
