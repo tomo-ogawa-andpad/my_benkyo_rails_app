@@ -1,7 +1,4 @@
-class Admin::UsersController < ApplicationController
-  before_action :require_admin
-
-  include Admin::AdminCommonController
+class Admin::UsersController < Admin::ApplicationController
 
   def index
     @users = User.all

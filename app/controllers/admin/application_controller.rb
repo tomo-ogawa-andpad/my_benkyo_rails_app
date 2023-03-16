@@ -1,5 +1,5 @@
-module Admin::AdminCommonController
-  extend ActiveSupport::Concern
+class Admin::ApplicationController < ApplicationController
+  before_action :require_admin
 
   private
 

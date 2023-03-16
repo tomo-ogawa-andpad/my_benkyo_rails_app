@@ -1,7 +1,4 @@
-class Admin::UserpageController < ApplicationController
-  before_action :require_admin
-
-  include Admin::AdminCommonController
+class Admin::UserpageController < Admin::ApplicationController
 
   def show
     @user = User.find(params[:id])

@@ -1,7 +1,4 @@
-class Admin::UsersSummariesController < ApplicationController
-  before_action :require_admin
-
-  include Admin::AdminCommonController
+class Admin::UsersSummariesController < Admin::ApplicationController
 
   def index
     @users_summaries = UsersSummary.preload(:file_blob).order(created_at: :desc)
