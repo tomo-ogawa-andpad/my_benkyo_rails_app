@@ -5,6 +5,12 @@
 $ bin/rails db:seed
 ```
 
+## 環境変数設定
+`.env`ファイルを作成し、サービス開始日を環境変数として設定する
+```
+SERVICE_START_DATE=2023/2/18
+```
+
 ## サーバ起動
 ```
 $ bin/rails s
