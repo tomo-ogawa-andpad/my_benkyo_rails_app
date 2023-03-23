@@ -6,7 +6,7 @@ class UsersSummaryGenerateJob < ApplicationJob
     csv_data = CSV.generate(encoding: 'sjis') do |csv|
       csv << ['ユーザー名', '対象年月', '投稿数']
       users.each do |user|
-        date = Date.strptime(ENV["SERVICE_START_DATE"], '%Y/%m/%d').beginning_of_month
+        date = (Post.minimum(:created_at) || Time.current).beginning_of_month
         while date <= today
           csv << [user.name, date.strftime('%Y年%m月'), user.posts.created_at_this_month(date).size]
           date = date.next_month
