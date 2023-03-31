@@ -1,6 +1,8 @@
 class UsersSummaryGenerateJob < ApplicationJob
   queue_as :default
 
+  # TODO: N+1になっているので修正する
+  # https://github.com/tomo-ogawa-andpad/my_benkyo_rails_app/pull/1#discussion_r1135095053
   def perform(today)
     users = User.all    
     csv_data = CSV.generate(encoding: 'sjis') do |csv|
